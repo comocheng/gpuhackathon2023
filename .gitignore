@@ -1,0 +1,5 @@
+01_rmg_demo/output/*
+*ipynb_checkpoints*
+*.vscode*
+*.DS_Store*
+*.log
