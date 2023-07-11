@@ -3,3 +3,4 @@
 *.vscode*
 *.DS_Store*
 *.log
+/02_profiling_examples/minimal/*
