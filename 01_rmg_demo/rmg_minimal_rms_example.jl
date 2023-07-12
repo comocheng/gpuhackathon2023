@@ -16,7 +16,7 @@ for spc in edgeishspcs
         newspc = Species(;name=spc.name,index=index+1,inchi=spc.inchi,smiles=spc.smiles,
             adjlist=spc.adjlist,thermo=spc.thermo,atomnums=spc.atomnums,diffusion=spc.diffusion,
             radius=spc.radius,radicalelectrons=spc.radicalelectrons,molecularweight=spc.molecularweight)
-        index += 1
+        global index += 1
         push!(coreedgespcs,newspc)
     end
 end
@@ -52,10 +52,11 @@ coredomain,y0,corep = ConstantTPDomain(phase=coregas,initialconds=initialconds);
 react = Reactor(coredomain,y0,(0.0,1e6);p=corep);
 coreedgedomain,coreedgey0,coreedgep = ConstantTPDomain(phase=coreedgegas,initialconds=initialconds);
 reactedge = Reactor(coreedgedomain,coreedgey0,(0.0,1e6);p=coreedgep);
-@profile (terminated,resurrected,invalidobjects,unimolecularthreshold,bimolecularthreshold,trimolecularthreshold,maxedgespeciesrateratios) = selectobjects(react,reactedge,coreedgedomain,[],coredomain,
+#@profile (terminated,resurrected,invalidobjects,unimolecularthreshold,bimolecularthreshold,trimolecularthreshold,maxedgespeciesrateratios) = selectobjects(react,reactedge,coreedgedomain,[],coredomain,
+#    [],corep,coreedgep,0.03,Inf,0.03,false,true,5,0.005,1.0,1.0,true,termination,1.0e8,Dict(),20,Inf)
+(terminated,resurrected,invalidobjects,unimolecularthreshold,bimolecularthreshold,trimolecularthreshold,maxedgespeciesrateratios) = selectobjects(react,reactedge,coreedgedomain,[],coredomain,
     [],corep,coreedgep,0.03,Inf,0.03,false,true,5,0.005,1.0,1.0,true,termination,1.0e8,Dict(),20,Inf)
-
-Profile.print()
+#Profile.print()
 
 
 
