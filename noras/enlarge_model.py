@@ -104,12 +104,13 @@ database.load(
 core_edge_model = CoreEdgeReactionModel(core=model, edge=model_edge)# surface=model_surface)
 
 #Array of flags indicating whether a species should react unimolecularly in the enlarge step
-unimolecular_react_array=[ True for i in range(27)]
+unimolecular_react_array=[ True for i in range(len(species))]
 #Array of flags indicating whether two species are above the bimolecular reaction threshold
-bimolecular_react_array=np.full((27, 27), True, dtype=bool)
-
+bimolecular_react_array=np.full((len(species), len(species)), True, dtype=bool)
+#len(species)=27. This is num_old_core_species in enlarge()
 
 #now enlarge
 #core_edge_model.enlarge(model_surface.species[0])
 core_edge_model.enlarge(react_edge=True, unimolecular_react=unimolecular_react_array,bimolecular_react=bimolecular_react_array)
 
+print('all done, you are truly the best')
