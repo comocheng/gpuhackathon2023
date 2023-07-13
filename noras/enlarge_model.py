@@ -99,6 +99,11 @@ database.load(
     kinetics_depositories = ['training'],
 )
 
+for family in database.kinetics.families.values():
+        if not family.auto_generated:
+            family.add_rules_from_training(thermo_database=database.thermo)
+            family.fill_rules_by_averaging_up(verbose=False)
+
 #combine into a CoreEdgeReactionModel
 
 core_edge_model = CoreEdgeReactionModel(core=model, edge=model_edge)# surface=model_surface)
