@@ -1,27 +1,35 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[24]:
+
+
 import os
+import numpy as np
 from rmgpy.rmg.main import RMG, RMG_Memory, log_conditions
 import rmgpy.chemkin
 from rmgpy.rmg.model import ReactionModel, CoreEdgeReactionModel
+from rmgpy import settings
+from rmgpy.data.rmg import RMGDatabase
+from ipython.kinetics_library_to_training_tools import *
 
 
 # 1. Use minimal example for RMG job 
 
-# In[21]:
-
-
 #specify input file and output directory
+full_path='/Users/nora/Code/projects/gpu_hackathon_2023'
 
 #CH4
-output_dir = './output'
-chemkin_file = './CH4/chem_annotated.inp'
-species_dict = './CH4/species_dictionary.txt'
-tran_file = './CH4/tran.dat'
+#output_dir = full_path+'/output'
+#chemkin_file = full_path+'/CH4/chem_annotated.inp'
+#species_dict = full_path+'/CH4/species_dictionary.txt'
+#tran_file = full_path+'/CH4/tran.dat'
 
 #minimal
-chemkin_file = './minimal/chem_annotated.inp'
-chemkin_file_edge = './minimal/chem_edge_annotated.inp'
-species_dict = './minimal/species_dictionary.txt'
-species_dict_edge = './minimal/species_edge_dictionary.txt'
+chemkin_file = full_path+'/minimal/chem_annotated.inp'
+chemkin_file_edge = full_path+'/minimal/chem_edge_annotated.inp'
+species_dict = full_path+'/minimal/species_dictionary.txt'
+species_dict_edge = full_path+'/minimal/species_edge_dictionary.txt'
 
 
 #load the chemkin file
@@ -30,17 +38,11 @@ species, reactions = rmgpy.chemkin.load_chemkin_file(chemkin_file, dictionary_pa
 species_edge, reactions_edge = rmgpy.chemkin.load_chemkin_file(chemkin_file_edge, dictionary_path=species_dict_edge)
 
 
-# In[22]:
-
-
 #initiate ReactionModel for core
 model=ReactionModel()
 
 #give it our species and reactions, this will be our "core"
 model.species, model.reactions = species, reactions 
-
-
-# In[47]:
 
 
 #let's make our edge and surface
@@ -68,9 +70,6 @@ for ind, rxn in enumerate(reactions_edge):
         
 
 
-# In[48]:
-
-
 #initiate ReactionModel for edge
 model_edge=ReactionModel()
 
@@ -84,15 +83,33 @@ model_surface=ReactionModel()
 model_surface.species, model_surface.reactions = surface_species , surface_reactions 
 
 
-# In[57]:
+#have to load database in here somewhere#load database
+families='default'
+#set libraries to load reactions from; set to None to load all libraries
+libraries =None
 
+thermo_libraries = ['primaryThermoLibrary']
+
+database = RMGDatabase()
+database.load(
+    path = settings['database.directory'],
+    thermo_libraries = thermo_libraries,  # Can add others if necessary
+    kinetics_families = families,
+    reaction_libraries = libraries,
+    kinetics_depositories = ['training'],
+)
 
 #combine into a CoreEdgeReactionModel
 
-core_edge_model = CoreEdgeReactionModel(core=model, edge=model_edge, surface=model_surface)
+core_edge_model = CoreEdgeReactionModel(core=model, edge=model_edge)# surface=model_surface)
+
+#Array of flags indicating whether a species should react unimolecularly in the enlarge step
+unimolecular_react_array=[ True for i in range(27)]
+#Array of flags indicating whether two species are above the bimolecular reaction threshold
+bimolecular_react_array=np.full((27, 27), True, dtype=bool)
 
 
 #now enlarge
-# core_edge_model.enlarge(model_surface.species[0])
-core_edge_model.enlarge(react_edge=True)
+#core_edge_model.enlarge(model_surface.species[0])
+core_edge_model.enlarge(react_edge=True, unimolecular_react=unimolecular_react_array,bimolecular_react=bimolecular_react_array)
 
