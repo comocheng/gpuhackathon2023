@@ -17,8 +17,8 @@ from ipython.kinetics_library_to_training_tools import *
 # 1. Use minimal example for RMG job 
 
 #specify input file and output directory
-full_path='/Users/nora/Code/projects/gpu_hackathon_2023'
-
+#full_path='/Users/nora/Code/projects/gpu_hackathon_2023'
+full_path='/work/westgroup/nora/Code/projects/gpu_hackathon/noras'
 #CH4
 #output_dir = full_path+'/output'
 #chemkin_file = full_path+'/CH4/chem_annotated.inp'
@@ -86,7 +86,7 @@ model_surface.species, model_surface.reactions = surface_species , surface_react
 #have to load database in here somewhere#load database
 families='default'
 #set libraries to load reactions from; set to None to load all libraries
-libraries =None
+libraries=['Methylformate']
 
 thermo_libraries = ['primaryThermoLibrary']
 
@@ -103,6 +103,12 @@ for family in database.kinetics.families.values():
         if not family.auto_generated:
             family.add_rules_from_training(thermo_database=database.thermo)
             family.fill_rules_by_averaging_up(verbose=False)
+
+#make rmg_job
+input_file=full_path+'/minimal/input.py'
+output_dir=full_path+'/output'
+rmg=RMG(input_file=input_file, output_directory=output_dir)
+rmg.initialize()
 
 #combine into a CoreEdgeReactionModel
 
