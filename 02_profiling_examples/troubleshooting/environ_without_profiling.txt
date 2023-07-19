@@ -1,0 +1,34 @@
+CONDA_SHLVL 2
+LD_LIBRARY_PATH /opt/nvidia/hpc_sdk/Linux_x86_64/22.7/math_libs/11.7/lib64:/opt/nvidia/hpc_sdk/Linux_x86_64/22.7/cuda/11.7/extras/CUPTI/lib64:/opt/nvidia/hpc_sdk/Linux_x86_64/22.7/cuda/11.7/extras/Debugger/lib64:/opt/nvidia/hpc_sdk/Linux_x86_64/22.7/cuda/11.7/nvvm/lib64:/opt/nvidia/hpc_sdk/Linux_x86_64/22.7/cuda/11.7/lib64:/opt/cray/pe/papi/7.0.0.1/lib64:/opt/cray/pe/gcc/11.2.0/snos/lib64:/opt/cray/libfabric/1.15.2.0/lib64
+CONDA_EXE /global/common/software/nersc/pm-2022q3/sw/python/3.9-anaconda-2021.11/bin/conda
+CRAY_LD_LIBRARY_PATH /opt/nvidia/hpc_sdk/Linux_x86_64/22.7/math_libs/11.7/lib64:/opt/nvidia/hpc_sdk/Linux_x86_64/22.7/cuda/11.7/lib64:/opt/cray/pe/perftools/23.03.0/lib64:/opt/cray/pe/mpich/8.1.25/ofi/gnu/9.1/lib:/opt/cray/pe/mpich/8.1.25/gtl/lib:/opt/cray/pe/libsci/23.02.1.1/GNU/9.1/x86_64/lib:/opt/cray/pe/dsmml/0.2.2/dsmml/lib
+JULIA_CONDAPKG_EXE_BACKUP 
+CRAYPAT_LD_LIBRARY_PATH /opt/cray/pe/gcc-libs:/opt/cray/gcc-libs:/opt/cray/pe/perftools/23.03.0/lib64
+_ /global/cfs/cdirs/ntrain4/comocheng/rmg/rmg_conda/bin/python-jl
+JULIA_DEPOT_PATH /global/cfs/cdirs/ntrain4/comocheng/rmg/rmg_conda/share/julia:
+CONDA_PREFIX /global/cfs/cdirs/ntrain4/comocheng/rmg/rmg_conda
+CONDA_JL_CONDA_EXE_BACKUP 
+__LMOD_REF_COUNT_LD_LIBRARY_PATH /opt/nvidia/hpc_sdk/Linux_x86_64/22.7/math_libs/11.7/lib64:1;/opt/nvidia/hpc_sdk/Linux_x86_64/22.7/cuda/11.7/extras/CUPTI/lib64:1;/opt/nvidia/hpc_sdk/Linux_x86_64/22.7/cuda/11.7/extras/Debugger/lib64:1;/opt/nvidia/hpc_sdk/Linux_x86_64/22.7/cuda/11.7/nvvm/lib64:1;/opt/nvidia/hpc_sdk/Linux_x86_64/22.7/cuda/11.7/lib64:1;/opt/cray/pe/papi/7.0.0.1/lib64:1;/opt/cray/pe/gcc/11.2.0/snos/lib64:1;/opt/cray/libfabric/1.15.2.0/lib64:1
+JULIA_CONDAPKG_EXE /global/common/software/nersc/pm-2022q3/sw/python/3.9-anaconda-2021.11/bin/conda
+JULIA_PROJECT_BACKUP 
+JULIA_LOAD_PATH @:@rmg_conda:@stdlib
+JULIA_PROJECT @rmg_conda
+CONDA_PREFIX_1 /global/common/software/nersc/pm-2022q3/sw/python/3.9-anaconda-2021.11
+CONDA_JL_HOME_BACKUP 
+JULIA_CONDAPKG_BACKEND_BACKUP 
+__LMOD_REF_COUNT_CRAY_LD_LIBRARY_PATH /opt/nvidia/hpc_sdk/Linux_x86_64/22.7/math_libs/11.7/lib64:1;/opt/nvidia/hpc_sdk/Linux_x86_64/22.7/cuda/11.7/lib64:1;/opt/cray/pe/perftools/23.03.0/lib64:1;/opt/cray/pe/mpich/8.1.25/ofi/gnu/9.1/lib:1;/opt/cray/pe/mpich/8.1.25/gtl/lib:1;/opt/cray/pe/libsci/23.02.1.1/GNU/9.1/x86_64/lib:2;/opt/cray/pe/dsmml/0.2.2/dsmml/lib:1
+JULIA_CONDAPKG_BACKEND System
+CONDA_PYTHON_EXE /global/common/software/nersc/pm-2022q3/sw/python/3.9-anaconda-2021.11/bin/python
+JULIA_SSL_CA_ROOTS_PATH_BACKUP 
+_CE_CONDA 
+CONDA_PROMPT_MODIFIER (/global/cfs/cdirs/ntrain4/comocheng/rmg/rmg_conda) 
+CONDA_JL_HOME /global/cfs/cdirs/ntrain4/comocheng/rmg/rmg_conda
+JULIA_LOAD_PATH_BACKUP 
+CONDA_JL_CONDA_EXE /global/common/software/nersc/pm-2022q3/sw/python/3.9-anaconda-2021.11/bin/conda
+PYTHONPATH /global/cfs/cdirs/ntrain4/comocheng/rmg/RMG-Py/:
+JULIA_SSL_CA_ROOTS_PATH /global/cfs/cdirs/ntrain4/comocheng/rmg/rmg_conda/ssl/cacert.pem
+JULIA_DEPOT_PATH_BACKUP 
+PATH /global/cfs/cdirs/ntrain4/comocheng/rmg/RMG-Py/:/global/cfs/cdirs/ntrain4/comocheng/rmg/rmg_conda/bin:/global/common/software/nersc/pm-2022q3/sw/python/3.9-anaconda-2021.11/condabin:/global/common/software/nersc/bin:/global/common/software/nersc/pm-2021q4/easybuild/software/Nsight-Systems/2022.2.1:/global/common/software/nersc/pm-2021q4/easybuild/software/Nsight-Systems/2022.2.1/bin:/global/common/software/nersc/pm-2021q4/easybuild/software/Nsight-Compute/2022.1.1:/opt/nvidia/hpc_sdk/Linux_x86_64/22.7/cuda/11.7/compute-sanitizer:/opt/nvidia/hpc_sdk/Linux_x86_64/22.7/cuda/11.7/bin:/opt/nvidia/hpc_sdk/Linux_x86_64/22.7/cuda/11.7/libnvvp:/opt/nvidia/hpc_sdk/Linux_x86_64/22.7/profilers/Nsight_Compute:/opt/nvidia/hpc_sdk/Linux_x86_64/22.7/profilers/Nsight_Systems/bin:/opt/cray/pe/perftools/23.03.0/bin:/opt/cray/pe/papi/7.0.0.1/bin:/opt/cray/pe/gcc/11.2.0/bin:/opt/cray/pe/craype/2.7.20/bin:/opt/cray/pe/mpich/8.1.25/ofi/gnu/9.1/bin:/opt/cray/pe/mpich/8.1.25/bin:/opt/cray/libfabric/1.15.2.0/bin:/global/homes/c/chrisjb/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/lib/mit/bin:/opt/cray/pe/bin
+CONDA_DEFAULT_ENV /global/cfs/cdirs/ntrain4/comocheng/rmg/rmg_conda
+PYTHON_CMD /global/cfs/cdirs/ntrain4/comocheng/rmg/rmg_conda/bin/python
+RDBASE /global/cfs/cdirs/ntrain4/comocheng/rmg/rmg_conda/share/RDKit
