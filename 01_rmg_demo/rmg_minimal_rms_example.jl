@@ -1,7 +1,7 @@
 using ReactionMechanismSimulator
 
-minimal_core = "./rms_input/minimal.rms"
-minimal_edge = "./rms_input/minimal_edge.rms"
+minimal_core = "/Users/blais.ch/Documents/_01_code/05_Project_repos_Github/gpuhackathon2023/01_rmg_demo/rms_input/minimal.rms"
+minimal_edge = "/Users/blais.ch/Documents/_01_code/05_Project_repos_Github/gpuhackathon2023/01_rmg_demo/rms_input/minimal_edge.rms"
 outcore = readinput(minimal_core)
 outedge = readinput(minimal_edge)
 corespcs = outcore["phase"]["Species"]
@@ -55,7 +55,7 @@ reactedge = Reactor(coreedgedomain,coreedgey0,(0.0,1e6);p=coreedgep);
 #@profile (terminated,resurrected,invalidobjects,unimolecularthreshold,bimolecularthreshold,trimolecularthreshold,maxedgespeciesrateratios) = selectobjects(react,reactedge,coreedgedomain,[],coredomain,
 #    [],corep,coreedgep,0.03,Inf,0.03,false,true,5,0.005,1.0,1.0,true,termination,1.0e8,Dict(),20,Inf)
 (terminated,resurrected,invalidobjects,unimolecularthreshold,bimolecularthreshold,trimolecularthreshold,maxedgespeciesrateratios) = selectobjects(react,reactedge,coreedgedomain,[],coredomain,
-    [],corep,coreedgep,0.03,Inf,0.03,false,true,5,0.005,1.0,1.0,true,termination,1.0e8,Dict(),20,Inf)
+    [],corep,coreedgep,0.03,Inf,0.03,false,true,5,0.005,1.0,1.0,true,termination,1.0e8,Dict(),20,0.0)
 #Profile.print()
 
 
