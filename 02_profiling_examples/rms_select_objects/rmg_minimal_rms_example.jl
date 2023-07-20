@@ -47,16 +47,15 @@ coreedgegas = IdealGas(coreedgespcs,coreedgerxns);
 
 initialconds = Dict(["T"=>1350.0,"P"=>1.0e5,"ethane"=>1.0]);
 spc = coregas.species[5] #ethane
-termination = [TerminationConversion(spc,0.9),TerminationTime(1e6)];
+termination = [TerminationConversion(spc,0.9),TerminationTime(1.0)];
 coredomain,y0,corep = ConstantTPDomain(phase=coregas,initialconds=initialconds);
-react = Reactor(coredomain,y0,(0.0,1e6);p=corep);
+react = Reactor(coredomain,y0,(0.0,1.0);p=corep);
 coreedgedomain,coreedgey0,coreedgep = ConstantTPDomain(phase=coreedgegas,initialconds=initialconds);
-reactedge = Reactor(coreedgedomain,coreedgey0,(0.0,1e6);p=coreedgep);
-#@profile (terminated,resurrected,invalidobjects,unimolecularthreshold,bimolecularthreshold,trimolecularthreshold,maxedgespeciesrateratios) = selectobjects(react,reactedge,coreedgedomain,[],coredomain,
+reactedge = Reactor(coreedgedomain,coreedgey0,(0.0,1.0);p=coreedgep);
+# @profile (terminated,resurrected,invalidobjects,unimolecularthreshold,bimolecularthreshold,trimolecularthreshold,maxedgespeciesrateratios) = selectobjects(react,reactedge,coreedgedomain,[],coredomain,
 #    [],corep,coreedgep,0.03,Inf,0.03,false,true,5,0.005,1.0,1.0,true,termination,1.0e8,Dict(),20,Inf)
 (terminated,resurrected,invalidobjects,unimolecularthreshold,bimolecularthreshold,trimolecularthreshold,maxedgespeciesrateratios) = selectobjects(react,reactedge,coreedgedomain,[],coredomain,
-    [],corep,coreedgep,0.03,Inf,0.03,false,true,5,0.005,1.0,1.0,true,termination,1.0e8,Dict(),20,0.0)
-#Profile.print()
+    [],corep,coreedgep,0.03,Inf,0.03,false,true,5,0.005,1.0,1.0,true,termination,1.0e8,Dict(),20,Inf)
 
 
 
