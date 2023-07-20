@@ -1,7 +1,7 @@
 using ReactionMechanismSimulator
-
-minimal_core = "/Users/blais.ch/Documents/_01_code/05_Project_repos_Github/gpuhackathon2023/01_rmg_demo/rms_input/minimal.rms"
-minimal_edge = "/Users/blais.ch/Documents/_01_code/05_Project_repos_Github/gpuhackathon2023/01_rmg_demo/rms_input/minimal_edge.rms"
+print(dirname(Base.source_path()))
+minimal_core = string(dirname(Base.source_path()),"/rms_input/minimal.rms")
+minimal_edge = string(dirname(Base.source_path()),"/rms_input/minimal_edge.rms")
 outcore = readinput(minimal_core)
 outedge = readinput(minimal_edge)
 corespcs = outcore["phase"]["Species"]
