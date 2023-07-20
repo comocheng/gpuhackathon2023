@@ -1,7 +1,7 @@
 using ReactionMechanismSimulator
 print(dirname(Base.source_path()))
-minimal_core = string(dirname(Base.source_path()), "/rms_input/minimal.rms")
-minimal_edge = string(dirname(Base.source_path()), "/rms_input/minimal_edge.rms")
+minimal_core = string(dirname(Base.source_path()), "/rms_input/chem1326_yen_ting.rms")
+minimal_edge = string(dirname(Base.source_path()), "/rms_input/chem1326_yen_ting_edge.rms")
 outcore = readinput(minimal_core)
 outedge = readinput(minimal_edge)
 corespcs = outcore["phase"]["Species"]
